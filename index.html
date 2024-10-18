@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="assign2.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="side-menu" id="side-menu">
+            <div class="logo">Weather App</div>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="user.html">User Profile</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <header>
+                <button id="menu-toggle" class="menu-toggle" style="display: none;">☰</button>
+                <div class="search-bar">
+                    <input type="text" id="city-input" placeholder="Enter city name">
+                    <button id="search-btn">Search</button>
+                </div>
+                <div class="user-profile">
+                    <a href="user.html">USER PROFILE</a>
+                </div>
+            </header>
+
+            <section id="weather-data">
+                <h2>WEATHER DATA BASED ON CITY</h2>
+                <div id="current-weather">
+                    <!-- Current weather will be inserted here -->
+                </div>
+            </section>
+
+            <section id="charts">
+                <div class="chart-container">
+                    <canvas id="temperature-bar-chart"></canvas>
+                    <h3>Temperature Bar Chart</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="weather-conditions-doughnut-chart"></canvas>
+                    <h3>Weather Conditions</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="temperature-line-chart"></canvas>
+                    <h3>5-Day Temperature Forecast</h3>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuToggle.addEventListener('click', () => {
+            sideMenu.classList.toggle('active');
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                menuToggle.style.display = 'block';
+            } else {
+                menuToggle.style.display = 'none';
+            }
+        });
+
+        // Initial check
+        if (window.innerWidth <= 768) {
+            menuToggle.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

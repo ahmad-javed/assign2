@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile</title>
+    <link rel="stylesheet" href="assign2.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Side Menu -->
+        <nav class="side-menu" id="side-menu">
+            <div class="logo">Ahmad.digital</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tables.html">Table</a></li>
+                <li><a href="#my-work">My Work</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <header>
+                <button id="menu-toggle" class="menu-toggle">☰</button>
+                <h1>Ahmad Javed</h1>
+                <p>Software Engineer | UI/UX Designer | Tech Enthusiast</p>
+            </header>
+            <div class="profile-bio">
+                <h2>About Me</h2>
+                <p>Hello! I'm Ahmad Javed, a software engineer from FAST-NUCES. I have a passion for coding and design, with experience in UI/UX projects and various programming languages such as C++, Java, Python, and JavaScript. My expertise includes web development, front-end design, and creating user-centric software solutions. I hold a degree in Computer Science and have a strong background in software requirements, design, and architecture.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuToggle.addEventListener('click', () => {
+            sideMenu.classList.toggle('active');
+        });
+
+        // Check screen size and adjust menu visibility
+        function checkScreenSize() {
+            if (window.innerWidth <= 768) {
+                sideMenu.classList.remove('active');
+                menuToggle.style.display = 'block';
+            } else {
+                sideMenu.classList.add('active');
+                menuToggle.style.display = 'none';
+            }
+        }
+
+        // Initial check
+        checkScreenSize();
+
+        // Listen for window resize
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+</body>
+</html>

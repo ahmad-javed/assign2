@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Tables</title>
+    <link rel="stylesheet" href="assign2.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="side-menu" id="side-menu">
+            <div class="logo">Weather App</div>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="user.html">User Profile</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <header>
+                <button id="menu-toggle" class="menu-toggle">☰</button>
+                <h1>Weather Forecast</h1>
+
+                <div class="search-bar">
+                    <input type="text" id="city-input" placeholder="Enter city name">
+                    <button id="search-btn">Search</button>
+                </div>
+
+                <div class="filter-buttons">
+                    <button id="sort-asc">Sort Ascending</button>
+                    <button id="sort-desc">Sort Descending</button>
+                    <button id="filter-rain">Filter Rain Days</button>
+                    <button id="highest-temp">Show Highest Temp Day</button>
+                </div>
+
+                <div class="user-profile">
+                    <a href="user.html">USER PROFILE</a>
+                </div>
+            </header>
+
+            <section id="forecast-table">
+                <h2>5-Day Forecast</h2>
+                <div class="forecast-cards">
+                    <!-- Forecast  here -->
+                </div>
+            </section>
+        </main>
+
+        <div id="chatbot-container">
+            <button id="toggle-chatbot">Toggle Chatbot</button>
+            <aside id="chatbot">
+                <div class="chat-header">Chat Bar for Chatbot</div>
+                <div class="chat-messages">
+                    <!-- Chat messages  here -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chat-input" placeholder="Type your message...">
+                    <button id="send-chat">Send</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuToggle.addEventListener('click', () => {
+            sideMenu.classList.toggle('active');
+        });
+
+        // Toggle chatbot functionality
+        document.getElementById("toggle-chatbot").addEventListener("click", function() {
+            const chatbot = document.getElementById("chatbot");
+            if (chatbot.style.display === "none" || chatbot.style.display === "") {
+                chatbot.style.display = "block";
+            } else {
+                chatbot.style.display = "none";
+            }
+        });
+
+        //  screen size and adjust menu visibility
+        function checkScreenSize() {
+            if (window.innerWidth <= 768) {
+                sideMenu.classList.remove('active');
+                menuToggle.style.display = 'block';
+            } else {
+                sideMenu.classList.add('active');
+                menuToggle.style.display = 'none';
+            }
+        }
+
+        // Initial check
+        checkScreenSize();
+
+        // Listen for window resize
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+</body>
+</html>
